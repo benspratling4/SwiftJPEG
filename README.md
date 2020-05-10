@@ -30,9 +30,24 @@ Not yet supported
 
 
 
-## Process
+## Progress
 
+RGB <-> YCrCb conversion   √
 
-RGB -> YCrCb conversion   √
-YCrCb -> RGB conversion √
 Pane splitting, subsampling & reconstitution  √
+
+break panes into 8x8 blocks, re-assmble original panes  √
+
+DCT  X
+
+quantization X
+
+zigzag  X
+
+RLE X
+
+converting into segments X
+
+assembling segment  X  reading Segments from file  √
+
+Exif fields X

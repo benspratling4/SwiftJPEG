@@ -34,7 +34,6 @@ extension Data {
 		var segments:[Segment] = []
 		
 		var index:Int = 0
-		var expectedNextMarkerByteIndex:Int = 1
 		repeat {
 			let (entrophyDataOrNil, nextMarkerIndexOrNil) = entrophyEncodedDataAndNextMarkerIndex(atOrAfter:index)
 			if let entrophyData:Data = entrophyDataOrNil, segments.count > 0 {
@@ -59,7 +58,6 @@ extension Data {
 			let segmentPayload:Data = self[dataStartWithoutLengthBytes..<dataEndWithoutLengthBytes]
 			segments.append(Segment(marker: marker, data: segmentPayload, entropyCoded: nil))
 			index = dataEndWithoutLengthBytes
-			expectedNextMarkerByteIndex = index + 1
 		} while index < count
 		
 		return segments
@@ -68,7 +66,7 @@ extension Data {
 	/*
 	public init(segments:[Segment]) {
 		//TODO: write me
-		
+		//insert length uint16 where appropriate, and insert 0x00 as needed to rpevent confusion of 0xff as segment markers
 	}
 	*/
 }

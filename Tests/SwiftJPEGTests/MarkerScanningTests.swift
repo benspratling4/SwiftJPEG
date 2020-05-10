@@ -20,6 +20,10 @@ class MarkerScanningTests : XCTestCase {
 		}
 		do {
 			let segments:[Segment] = try fileData.jpegSegments()
+			XCTAssertGreaterThan(segments.count, 4)
+			XCTAssertEqual(segments[0].marker, .startOfImage)
+			XCTAssertEqual(segments.last?.marker, .endOfImage)
+			print(segments)
 		} catch {
 			XCTFail("failed reading segments \(error)")
 		}

@@ -13,6 +13,8 @@ let package = Package(
     ],
     dependencies: [
 		.package(url: "https://github.com/benspratling4/SwiftGraphicsCore.git", from: "1.0.5"),
+		.package(url: "https://github.com/benspratling4/SwiftPNG.git", from: "1.0.2"),
+//		.package(path: "../SwiftPNG"),	//for development when finding bugs in SwiftPNG
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -24,6 +26,6 @@ let package = Package(
 			dependencies: [.byName(name: "SwiftGraphicsCore")]),
         .testTarget(
             name: "SwiftJPEGTests",
-            dependencies: ["SwiftJPEG"]),
+            dependencies: ["SwiftJPEG", "SwiftGraphicsCore", "SwiftPNG"]),
     ]
 )

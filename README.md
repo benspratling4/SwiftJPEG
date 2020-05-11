@@ -38,7 +38,7 @@ Pane splitting, subsampling & reconstitution  √
 
 break panes into 8x8 blocks, re-assmble original panes  √
 
-DCT  X
+DCT  coordinate space <-> spatial frequency space √ 
 
 quantization X
 
